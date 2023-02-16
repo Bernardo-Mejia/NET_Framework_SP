@@ -1,0 +1,44 @@
+﻿@model Contacto
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row" style="margin-top:30px">
+    <div class="col-sm-12">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h4>Editar contacto</h4>
+            </div>
+            <div class="panel-body">
+                <form action="@Url.Action("Editar", "Contacto")" method="post" autocomplete="off">
+                    <div class="form-group">
+                        <input type="hidden" id="txtIdContacto" name="IdContacto" class="form-control" value="@Html.DisplayTextFor(m => m.IdContacto)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNombres">Nombres</label>
+                        <input type="text" id="txtNombres" name="Nombres" class="form-control" value="@Html.DisplayTextFor(m => m.Nombres)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txtApellidos">Apellidos</label>
+                        <input type="text" id="txtApellidos" name="Apellidos" class="form-control" value="@Html.DisplayTextFor(m => m.Apellidos)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txtTelefono">Telefono</label>
+                        <input type="text" id="txtTelefono" name="Telefono" class="form-control" value="@Html.DisplayTextFor(m => m.Telefono)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txtCorreo">Correo</label>
+                        <input type="text" id="txtCorreo" name="Correo" class="form-control" value="@Html.DisplayTextFor(m => m.Correo)" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    @*@Html.ActionLink("Regresar", "Index", new { }, new { @class = "btn btn-warning" })*@
+                    <a href="@Url.Action("Index", "Contacto")" class="btn btn-warning">Volver</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

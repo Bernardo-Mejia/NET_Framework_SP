@@ -1,0 +1,84 @@
+﻿@model List<Contacto>
+
+@{
+    ViewBag.Title = "Contactos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<div class="row" style="margin-top:30px">
+    <div class="col-sm-12">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h4>Lista de contactos</h4>
+            </div>
+            <div class="panel-body">
+                @*<a href="#" class="btn btn-success">Crear Nuevo</a>*@
+                @Html.ActionLink("Crear nuevo", "Registrar", new { }, new { @class = "btn btn-success" })
+                <hr />
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                @*<th>
+                                    Id
+                                </th>*@
+                                <th>
+                                    @*@Html.DisplayNameFor(model => model.Nombres)*@
+                                    Nombres
+                                </th>
+                                <th>
+                                    @*@Html.DisplayNameFor(model => model.Apellidos)*@
+                                    Apellidos
+                                </th>
+                                <th>
+                                    @*@Html.DisplayNameFor(model => model.Telefono)*@
+                                    Teléfono
+                                </th>
+                                <th>
+                                    @*@Html.DisplayNameFor(model => model.Correo)*@
+                                    Correo
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (ProyectoCRUD.Models.Contacto item in Model)
+                            {
+                                <tr>
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.IdContacto)
+                                    </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nombres)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Apellidos)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Telefono)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Correo)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Editar", "Editar", new { idContacto = item.IdContacto }, new { @class = "btn btn-warning" }) |
+                                        @Html.ActionLink("Detalles", "Detalles", new { idContacto = item.IdContacto }, new { @class = "btn btn-primary" }) |
+                                        @*@Html.ActionLink("Eliminar", "Eliminar", new { idContacto = item.IdContacto }, new { @class = "btn btn-danger" })*@
+                                        <a href="@Url.Action("Eliminar", "Contacto", new {idContacto = item.IdContacto})" class="btn btn-danger">Eliminar</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
